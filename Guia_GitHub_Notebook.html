@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Guía interactiva · Git &amp; GitHub para la clase</title>
+<style>
+  :root{
+    --bg:#f7f7f9;
+    --cell-border:#e0e0e0;
+    --md-accent:#4285f4;
+    --code-bg:#282c34;
+    --code-fg:#e6e6e6;
+    --tip-bg:#e6f4ea;
+    --tip-accent:#1e8e3e;
+    --warn-bg:#fef7e0;
+    --warn-accent:#f9ab00;
+    --text:#202124;
+    --muted:#5f6368;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--text);
+    padding:32px 16px 80px;
+  }
+  .notebook{
+    max-width:820px;
+    margin:0 auto;
+  }
+  .nb-header{
+    text-align:center;
+    margin-bottom:32px;
+  }
+  .nb-header .badge{
+    display:inline-block;
+    background:#fff;
+    border:1px solid var(--cell-border);
+    border-radius:20px;
+    padding:6px 16px;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+  .nb-header h1{
+    font-size:26px;
+    margin:0 0 8px;
+  }
+  .nb-header p{
+    color:var(--muted);
+    font-size:15px;
+    margin:0;
+  }
+  .cell{
+    display:flex;
+    margin-bottom:14px;
+    background:#fff;
+    border:1px solid var(--cell-border);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 1px 2px rgba(0,0,0,0.03);
+  }
+  .cell-index{
+    flex:0 0 56px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding-top:16px;
+    font-family:monospace;
+    font-size:12px;
+    color:#9aa0a6;
+    background:#fafafa;
+    border-right:1px solid var(--cell-border);
+  }
+  .cell-body{
+    padding:16px 20px;
+    flex:1;
+    min-width:0;
+  }
+  .cell.markdown .cell-index{color:var(--md-accent);}
+  .cell.markdown h2{
+    font-size:19px;
+    margin:0 0 10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .cell.markdown h3{
+    font-size:15px;
+    margin:16px 0 6px;
+  }
+  .cell.markdown p{
+    line-height:1.6;
+    font-size:14.5px;
+    margin:0 0 10px;
+  }
+  .cell.markdown ul, .cell.markdown ol{
+    line-height:1.7;
+    font-size:14.5px;
+    margin:0 0 10px;
+    padding-left:22px;
+  }
+  .cell.code .cell-body{
+    padding:0;
+  }
+  .code-block{
+    background:var(--code-bg);
+    color:var(--code-fg);
+    font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+    font-size:13px;
+    padding:14px 18px;
+    overflow-x:auto;
+    line-height:1.6;
+    white-space:pre;
+  }
+  .code-caption{
+    font-size:12px;
+    color:var(--muted);
+    padding:8px 18px 0;
+  }
+  .tip{
+    background:var(--tip-bg);
+    border-left:4px solid var(--tip-accent);
+    border-radius:4px;
+    padding:10px 14px;
+    font-size:13.5px;
+    margin:10px 0;
+  }
+  .warn{
+    background:var(--warn-bg);
+    border-left:4px solid var(--warn-accent);
+    border-radius:4px;
+    padding:10px 14px;
+    font-size:13.5px;
+    margin:10px 0;
+  }
+  .placeholder{
+    display:inline-block;
+    background:#fce8e6;
+    color:#c5221f;
+    font-family:monospace;
+    padding:1px 6px;
+    border-radius:4px;
+    font-size:13px;
+  }
+  .toc{
+    background:#fff;
+    border:1px solid var(--cell-border);
+    border-radius:8px;
+    padding:16px 22px;
+    margin-bottom:20px;
+    font-size:14px;
+  }
+  .toc a{color:var(--md-accent); text-decoration:none;}
+  .toc li{margin-bottom:4px;}
+  .checklist label{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    margin-bottom:8px;
+    font-size:14.5px;
+    line-height:1.5;
+  }
+  .checklist input{margin-top:3px;}
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:30px;
+  }
+</style>
+</head>
+<body>
+<div class="notebook">
+
+  <div class="nb-header">
+    <span class="badge">📓 Guía interactiva — estilo notebook</span>
+    <h1>Git &amp; GitHub para el curso de Lógica de Programación</h1>
+    <p>Aquí vas a entender qué es GitHub, para qué lo vamos a usar en el curso y cómo entrar cada semana a ver los ejercicios de clase.</p>
+  </div>
+
+  <div class="toc">
+    <strong>Contenido de esta guía</strong>
+    <ol>
+      <li><a href="#s1">¿Qué es Git y qué es GitHub?</a></li>
+      <li><a href="#s2">Vocabulario básico que necesitas</a></li>
+      <li><a href="#s3">Crear tu cuenta de GitHub (opcional)</a></li>
+      <li><a href="#s4">Cómo entrar al repositorio del curso</a></li>
+      <li><a href="#s6">Qué vas a encontrar ahí cada semana</a></li>
+      <li><a href="#s7">Antes de la próxima clase</a></li>
+    </ol>
+  </div>
+
+  <div class="cell markdown" id="s1">
+    <div class="cell-index">md [1]</div>
+    <div class="cell-body">
+      <h2>💡 ¿Qué es Git y qué es GitHub?</h2>
+      <p><strong>Git</strong> es un sistema de control de versiones: guarda un historial de todos los cambios que se hacen sobre un conjunto de archivos, para poder ver ese historial o volver atrás si algo se daña.</p>
+      <p><strong>GitHub</strong> es una plataforma en internet donde se alojan proyectos que usan Git (llamados <em>repositorios</em>), para que cualquiera con el link pueda verlos, descargarlos o colaborar en ellos.</p>
+      <div class="tip">🧠 Analogía para la clase: es parecido a una carpeta de Google Drive compartida, pero pensada para código, con un historial detallado de "quién cambió qué y cuándo".</div>
+    </div>
+  </div>
+
+  <div class="cell markdown" id="s2">
+    <div class="cell-index">md [2]</div>
+    <div class="cell-body">
+      <h2>🧰 Vocabulario básico</h2>
+      <ul>
+        <li><strong>Repositorio (repo):</strong> la carpeta del proyecto alojada en GitHub. Ahí va a vivir todo el material del curso.</li>
+        <li><strong>Commit:</strong> un "guardado" con una foto de cómo estaban los archivos en ese momento, más un mensaje que explica qué cambió.</li>
+        <li><strong>Clonar / descargar:</strong> traer una copia del repositorio a tu propio computador.</li>
+        <li><strong>README:</strong> el archivo de bienvenida/instrucciones que se ve automáticamente al entrar al repositorio.</li>
+      </ul>
+      <p>Con estos cuatro términos es suficiente para que entiendas cómo moverte en el repositorio del curso.</p>
+    </div>
+  </div>
+
+  <div class="cell markdown" id="s3">
+    <div class="cell-index">md [3]</div>
+    <div class="cell-body">
+      <h2>🚀 Crear tu cuenta de GitHub (opcional)</h2>
+      <p>No es obligatorio tener cuenta para ver el repositorio del curso, pero si quieres practicar y familiarizarte con la plataforma (te va a servir el resto de la carrera), estos son los pasos para crear la tuya con tu correo institucional:</p>
+      <ol>
+        <li>Entra a <strong>github.com</strong> y elige "Sign up".</li>
+        <li>Regístrate usando tu correo institucional.</li>
+        <li>Elige un nombre de usuario y una contraseña segura.</li>
+        <li>Verifica tu cuenta desde el correo que te llega.</li>
+      </ol>
+      <div class="tip">💡 No necesitas hacer nada más con esta cuenta por ahora — es solo para que sepas cómo se hace, por si más adelante quieres subir tus propios proyectos.</div>
+    </div>
+  </div>
+
+  <div class="cell markdown" id="s4">
+    <div class="cell-index">md [4]</div>
+    <div class="cell-body">
+      <h2>📂 Cómo entrar al repositorio del curso</h2>
+      <p>Este es el repositorio donde vas a encontrar todo el material de la clase:</p>
+      <p><a href="https://github.com/oviedo-coder/logica-programacion-2026-2" target="_blank">https://github.com/oviedo-coder/logica-programacion-2026-2</a></p>
+      <ol>
+        <li>Da clic en el link (también lo vas a encontrar siempre disponible en Classroom).</li>
+        <li>Vas a ver una lista de carpetas, una por cada clase o semana.</li>
+        <li>Entra a la carpeta de la clase que te interese para ver los ejercicios trabajados ese día.</li>
+        <li>Da clic en cualquier archivo <code>.java</code> para leerlo directamente en el navegador.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="cell markdown" id="s6">
+    <div class="cell-index">md [5]</div>
+    <div class="cell-body">
+      <h2>📅 Qué vas a encontrar ahí cada semana</h2>
+      <p>Después de cada clase se van a subir al repositorio los ejercicios que trabajamos ese día en clase, organizados por carpeta. Ahí vas a poder:</p>
+      <ul>
+        <li>Revisar de nuevo el código que hicimos juntos en clase.</li>
+        <li>Estudiar y repasar antes de un parcial o un seguimiento.</li>
+        <li>Ponerte al día si faltaste a alguna clase.</li>
+      </ul>
+      <p>Todo el material del curso queda disponible en un solo lugar y siempre actualizado.</p>
+    </div>
+  </div>
+
+  <div class="cell markdown" id="s7">
+    <div class="cell-index">md [6]</div>
+    <div class="cell-body">
+      <h2>✅ Antes de la próxima clase</h2>
+      <div class="checklist">
+        <label><input type="checkbox"> Entra al link del repositorio y explóralo.</label>
+        <label><input type="checkbox"> Guarda el link en tus favoritos.</label>
+        <label><input type="checkbox"> (Opcional) crea tu cuenta de GitHub con tu correo institucional.</label>
+      </div>
+    </div>
+  </div>
+
+  <footer>Lógica de Programación · 2026-2</footer>
+</div>
+</body>
+</html>
